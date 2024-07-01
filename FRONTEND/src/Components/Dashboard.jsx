@@ -16,7 +16,7 @@ function Dashboard() {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/verify', {
+        const response = await axios.get('kanban-backend-kohl.vercel.app/verify', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
