@@ -34,7 +34,7 @@ function Login() {
     }
 
     try {
-      const response = await axios.post("kanban-backend-mu.vercel.app/login", {
+      const response = await axios.post("kanban-backend-woad.vercel.app/login", {
         email,
         password,
       });
