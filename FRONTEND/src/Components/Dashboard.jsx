@@ -16,7 +16,8 @@ function Dashboard() {
       }
 
       try {
-        const response = await axios.get('kanban-backend-mu.vercel.app/verify', {
+        const response = await axios.get('kanban-backend-woad.vercel.app
+/verify', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
