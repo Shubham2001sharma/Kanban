@@ -47,7 +47,7 @@ function Register() {
         }
 
         try {
-            const response = await axios.post("kanban-backend-mu.vercel.app/register", {
+            const response = await axios.post("http://localhost:3000/register", {
                 email,
                 password,
                 firstname,

@@ -19,7 +19,7 @@ function ForgotPassword() {
                 return;
             }
     
-            const response = await axios.post("kanban-backend-mu.vercel.app/forgot-password", {
+            const response = await axios.post("http://localhost:3000/forgot-password", {
                 email
             });
     
