@@ -11,7 +11,7 @@ const secretkey = "hello";
 
 const app = express();
 app.use(cors({
-    origin: ["kanban-frontend-silk.vercel.app"],
+    origin: ["https://kanban-frontend-silk.vercel.app"],
     credentials: true,
 }));
 app.use(express.json());
