@@ -10,9 +10,17 @@ const cookieParser = require('cookie-parser');
 const secretkey = "hello";
 
 const app = express();
+const allowedOrigins = ['https://kanban-frontend-silk.vercel.app', 'https://another-frontend.vercel.app'];
 app.use(cors({
-    origin: ["https://kanban-frontend-silk.vercel.app"],
-    credentials: true,
+  origin: function(origin, callback){
+    if (!origin) return callback(null, true); // Allow requests with no origin (like mobile apps, curl requests)
+    if (allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true
 }));
 app.use(express.json());
 app.use(cookieParser());
