@@ -101,7 +101,7 @@ function Register() {
                         </div>
 
                         <form onSubmit={handleSubmitRegister} className="mt-4">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 cursor-pointer">
                                 <div>
                                     <TEInput
                                         type="text"

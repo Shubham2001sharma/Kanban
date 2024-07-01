@@ -54,11 +54,8 @@ app.post('/register', async (req, res) => {
     }
 });
 
-// Login endpoint
 app.post('/login', async (req, res) => {
     const { email, password } = req.body;
-
-   
 
     if (!email || !password) {
         return res.status(400).send({ message: "Email and password are required" });
@@ -71,11 +68,7 @@ app.post('/login', async (req, res) => {
             return res.status(400).send({ message: 'Invalid email or password' });
         }
 
-        
-
         const isMatch = await bcrypt.compare(password, user.password);
-       
-
         if (!isMatch) {
             return res.status(400).send({ message: 'Invalid email or password' });
         }
@@ -84,7 +77,8 @@ app.post('/login', async (req, res) => {
         res.cookie("token", token, { httpOnly: true, secure: true, sameSite: 'Strict' });
 
         console.log('Login successful for user:', email);
-        res.status(200).send({ message: 'Login successful', token }); // Include the token in the response
+
+        res.status(200).send({ message: 'Login successful', token });
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).send({ message: 'Login failed' });
@@ -140,7 +134,7 @@ app.post("/forgot-password", async (req, res) => {
             from: 'shubhamsharma20152@gmail.com',
             to: email,
             subject: 'Reset your password',
-            text: `Click the following link to reset your password: <a href="http://localhost:5173/reset-password/${user._id}/${token}">Reset Password</a>`
+            text: `Click the following link to reset your password: <a href="http://localhost:5173/reset-password/${user._id}">Reset Password</a>`
         };
 
         // Send the email

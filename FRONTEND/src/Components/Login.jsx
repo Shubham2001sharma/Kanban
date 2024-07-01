@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { TEInput, TERipple } from "tw-elements-react";
 import axios from "axios";
+//import PaymentModal from "./PaymentModal"; // Assuming you have a PaymentModal component
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -38,21 +40,25 @@ function Login() {
       });
 
       if (response.data.token) {
-        
-        navigate("/dashboard");
         localStorage.setItem("token", response.data.token);
-      } else {
+        
+        
+          navigate("/dashboard");
+        }
+       
         setError("Login failed. Please check your username and password.");
-      }
+      
     } catch (error) {
       console.error("Login failed:", error);
       setError("Login failed. Please try again.");
     }
-  };
-
+  
+  }
   const handleRegister = () => {
     navigate("/register");
   };
+  
+  
 
   return (
     <>
@@ -132,6 +138,8 @@ function Login() {
           </div>
         </div>
       </section>
+
+      
     </>
   );
 }

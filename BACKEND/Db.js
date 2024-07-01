@@ -12,6 +12,7 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true, // Ensure email uniqueness
+        //isFirstLogin: { type: Boolean, default: true }
     },
     password: {
         type: String,
