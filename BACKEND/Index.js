@@ -11,7 +11,7 @@ const secretkey = "hello";
 
 const app = express();
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["kanban-dv6u.vercel.app"],
     credentials: true,
 }));
 app.use(express.json());
